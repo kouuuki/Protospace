@@ -1,0 +1,15 @@
+%p#notice= notice
+
+%p
+  %b Title:
+  = @prototype.title
+%p
+  %b Catch:
+  = @prototype.catch
+%p
+  %b Concept:
+  = @prototype.concept
+
+= link_to 'Edit', edit_prototype_path(@prototype)
+\|
+= link_to 'Back', prototypes_path

@@ -1,0 +1,19 @@
+= form_for @prototype do |f|
+  - if @prototype.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@prototype.errors.count, "error")} prohibited this prototype from being saved:"
+      %ul
+        - @prototype.errors.full_messages.each do |message|
+          %li= message
+
+  .field
+    = f.label :title
+    = f.text_field :title
+  .field
+    = f.label :catch
+    = f.text_field :catch
+  .field
+    = f.label :concept
+    = f.text_area :concept
+  .actions
+    = f.submit 'Save'
