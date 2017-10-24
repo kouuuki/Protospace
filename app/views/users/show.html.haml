@@ -1,0 +1,21 @@
+%p#notice= notice
+
+%p
+  %b Name:
+  = @user.name
+%p
+  %b Image:
+  = @user.image
+%p
+  %b Member:
+  = @user.member
+%p
+  %b Profile:
+  = @user.profile
+%p
+  %b Work:
+  = @user.work
+
+= link_to 'Edit', edit_user_path(@user)
+\|
+= link_to 'Back', users_path
