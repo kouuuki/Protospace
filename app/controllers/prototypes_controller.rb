@@ -4,7 +4,7 @@ class PrototypesController < ApplicationController
   # GET /prototypes
   # GET /prototypes.json
   def index
-    @prototypes = Prototype.all
+    @prototypes = Prototype.page(params[:page]).per(12)
   end
 
   # GET /prototypes/1
