@@ -1,30 +1,30 @@
-= form_for @prototype, html: {class: 'container proto-new'} do |f|
+= form_for @prototype, html: {class: 'container proto-new'} do |prototype_form|
   .col-md-8.col-md-offset-2
     %header.row.user-nav.row
       .col-md-12
-        = f.text_field :title, class:"proto-new-title", placeholder:"Title"
-    = f.fields_for :images do |m|
+        = prototype_form.text_field :title, class:"proto-new-title", placeholder:"Title"
+    = prototype_form.fields_for :images, @images do |image_fields|
       .row
         .col-md-12
           .cover-image-upload
-            = m.file_field :image
+            = image_fields.file_field :image
             -# %input{type: "file"}/
         .col-md-12
           %ul.proto-sub-list.list-group
             %li.list-group-item.col-md-4
               .image-upload
-                = m.file_field :image
+                = image_fields.file_field :image
             %li.list-group-item.col-md-4
               .image-upload
-                = m.file_field :image
+                = image_fields.file_field :image
             %li.list-group-item.col-md-4
               .image-upload-plus
                 %span +
     .row.proto-description
       .col-md-12
-        = f.text_field :catch, placeholder:"Catch Copy"
+        = prototype_form.text_field :catch, placeholder:"Catch Copy"
       .col-md-12
-        = f.text_area :concept, placeholder:"Concept"
+        = prototype_form.text_area :concept, placeholder:"Concept"
       .col-md-12
         %h4 Tag List
         .row
