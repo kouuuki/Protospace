@@ -3,11 +3,12 @@
     %header.row.user-nav.row
       .col-md-12
         = prototype_form.text_field :title, class:"proto-new-title", placeholder:"Title"
-    = prototype_form.fields_for :images, @images do |image_fields|
+    = prototype_form.fields_for :image do |image_fields|
       .row
         .col-md-12
           .cover-image-upload
             = image_fields.file_field :image
+            = image_fields.hidden_field :image_cache
             -# %input{type: "file"}/
         .col-md-12
           %ul.proto-sub-list.list-group

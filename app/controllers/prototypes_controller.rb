@@ -15,7 +15,7 @@ class PrototypesController < ApplicationController
   # GET /prototypes/new
   def new
     @prototype = Prototype.new
-    @images = Image.new
+    @image = Image.new
   end
 
   # GET /prototypes/1/edit
@@ -25,7 +25,7 @@ class PrototypesController < ApplicationController
   # POST /prototypes
   # POST /prototypes.json
   def create
-    @prototype = Prototype.new(prototype_params)
+    @prototype = current_user.prototypes.build(prototype_params)
 
     respond_to do |format|
       if @prototype.save
@@ -70,6 +70,6 @@ class PrototypesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def prototype_params
-      params.require(:prototype).permit(:title, :catch, :concept, images_attributes: [:images])
+      params.require(:prototype).permit(:title, :catch, :concept, images_attributes: [:image,:image_cache])
     end
 end

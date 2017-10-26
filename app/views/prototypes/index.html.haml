@@ -18,12 +18,12 @@
       .col-sm-4.col-md-3.proto-content
         .thumbnail
         %a{href: "/prototypes/show"}
-          = image_tag("sample.png")
+          -# = image_tag("sample.png")
           .caption
-            %h3= prototype.title
+            %h3= link_to prototype.title, prototype_path(prototype)
             .proto-meta
               .proto-user
-                %a{href: "#"} by user
+                = link_to current_user.name, user_path(current_user.id)
               .proto-posted
                 Apr 26
             %ul.proto-tag-list.list-inline
