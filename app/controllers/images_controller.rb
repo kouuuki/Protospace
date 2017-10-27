@@ -24,8 +24,8 @@ class ImagesController < ApplicationController
   # POST /images
   # POST /images.json
   def create
-    @image = Image.new(image_params)
-
+    #@image = Image.new(image_params)
+    @image = prototype.images.build(image_params)
     respond_to do |format|
       if @image.save
         format.html { redirect_to @image, notice: 'Image was successfully created.' }
@@ -69,6 +69,6 @@ class ImagesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def image_params
-      params.require(:image).permit(:prototype_id, :image)
+      params.require(:image).permit(:prototype_id, images_attributes: [:images])
     end
 end

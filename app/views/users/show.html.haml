@@ -4,8 +4,7 @@
   %b Name:
   = @user.name
 %p
-  %b Image:
-  = @user.image
+  = image_tag @user.image, style: "width: 64px; height: 64px;"
 %p
   %b Member:
   = @user.member
