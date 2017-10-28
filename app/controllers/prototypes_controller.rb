@@ -10,6 +10,8 @@ class PrototypesController < ApplicationController
   # GET /prototypes/1
   # GET /prototypes/1.json
   def show
+    @comment = Comment.new
+    #@comment = @prototype.comments.build
   end
 
   # GET /prototypes/new
@@ -26,9 +28,7 @@ class PrototypesController < ApplicationController
   # POST /prototypes
   # POST /prototypes.json
   def create
-    binding.pry
     @prototype = current_user.prototypes.build(prototype_params)
-    # @prototype.images.build
     respond_to do |format|
       if @prototype.save
         format.html { redirect_to @prototype, notice: 'Prototype was successfully created.' }
