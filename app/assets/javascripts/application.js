@@ -15,3 +15,23 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
+$(function () {
+  $('form').submit(function(e) {
+    // $('.form-control').val("");
+    $.ajax($(this).attr('action'), {
+          type: 'POST',
+          url: '/comments/create',
+          data: formData,
+          processData: false,
+          contentType: false,
+          dataType: 'json' //データ形式を指定
+        }).done(function(data){
+          $('.chat-message').append(html(data));
+          console.log(data);
+          $('#message-s').animate({scrollTop:$('.message')[0].scrollHeight}, 2000); // 自動スクロールさせる
+          $('.form-control').val(""); // フォームを空にする
+        }).fail(function() {
+           console.log('error!'); // エラーが発生したとき
+        });
+  });
+});
