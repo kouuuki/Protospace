@@ -23,7 +23,7 @@
             %h3= link_to prototype.title, prototype_path(prototype)
             .proto-meta
               .proto-user
-                = link_to current_user.name, user_path(current_user.id)
+                = link_to prototype.user.name, user_path(prototype.user.id)
               .proto-posted
                 Apr 26
             %ul.proto-tag-list.list-inline

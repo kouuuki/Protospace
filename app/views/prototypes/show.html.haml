@@ -3,21 +3,22 @@
     .col-md-6
       .media
         .media-left
-          %img.media-object= link_to image_tag current_user.image,alt: "64x64", style: "width: 64px; height: 64px;"
+          %img.media-object= link_to image_tag @prototype.user.image,alt: "64x64", style: "width: 64px; height: 64px;"
           -# %a{href: "#"}
           -#   %img.media-object{alt: "64x64", "data-holder-rendered": "true", "data-src": "holder.js/64x64", src: "data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9InllcyI/PjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB3aWR0aD0iNjQiIGhlaWdodD0iNjQiIHZpZXdCb3g9IjAgMCA2NCA2NCIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+PGRlZnMvPjxyZWN0IHdpZHRoPSI2NCIgaGVpZ2h0PSI2NCIgZmlsbD0iI0VFRUVFRSIvPjxnPjx0ZXh0IHg9IjEzLjQ2MDkzNzUiIHk9IjMyIiBzdHlsZT0iZmlsbDojQUFBQUFBO2ZvbnQtd2VpZ2h0OmJvbGQ7Zm9udC1mYW1pbHk6QXJpYWwsIEhlbHZldGljYSwgT3BlbiBTYW5zLCBzYW5zLXNlcmlmLCBtb25vc3BhY2U7Zm9udC1zaXplOjEwcHQ7ZG9taW5hbnQtYmFzZWxpbmU6Y2VudHJhbCI+NjR4NjQ8L3RleHQ+PC9nPjwvc3ZnPg==", style: "width: 64px; height: 64px;"}/
         .media-body
           %h4#top-aligned-media.media-heading
             =@prototype.title
           .proto-user
-            = link_to current_user.name, user_path(current_user.id)
+            = link_to @prototype.user.name, user_path(current_user.id)
             %span.degree= current_user.work
 
     .col-md-6.text-right
       %button.btn.btn-default
-        = image_tag("icon_heart.svg")
-        Like
-        %span.num 20
+        = render "likes/like"
+        -# = image_tag("icon_heart.svg")
+        -# Like
+        -# %span.num 20
   - @prototype.images.each_with_index do |image, i|
     .row
       - if i==0
@@ -55,7 +56,7 @@
         .media
           .media-left
             %a{href: "#"}
-              %img.media-object= link_to image_tag current_user.image,alt: "64x64", style: "width: 64px; height: 64px;"
+              %img.media-object= link_to image_tag comment.user.image,alt: "64x64", style: "width: 64px; height: 64px;"
               -# %img.media-object{alt: "64x64", "data-holder-rendered": "true", "data-src": "holder.js/64x64", src: "data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9InllcyI/PjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB3aWR0aD0iNjQiIGhlaWdodD0iNjQiIHZpZXdCb3g9IjAgMCA2NCA2NCIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+PGRlZnMvPjxyZWN0IHdpZHRoPSI2NCIgaGVpZ2h0PSI2NCIgZmlsbD0iI0VFRUVFRSIvPjxnPjx0ZXh0IHg9IjEzLjQ2MDkzNzUiIHk9IjMyIiBzdHlsZT0iZmlsbDojQUFBQUFBO2ZvbnQtd2VpZ2h0OmJvbGQ7Zm9udC1mYW1pbHk6QXJpYWwsIEhlbHZldGljYSwgT3BlbiBTYW5zLCBzYW5zLXNlcmlmLCBtb25vc3BhY2U7Zm9udC1zaXplOjEwcHQ7ZG9taW5hbnQtYmFzZWxpbmU6Y2VudHJhbCI+NjR4NjQ8L3RleHQ+PC9nPjwvc3ZnPg==", style: "width: 64px; height: 64px;"}/
           .media-body
             %h4#top-aligned-media.media-heading
