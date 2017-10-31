@@ -1,36 +1,42 @@
-.jumbotron
-  .container.text-center
-    = image_tag("header_logo.png", alt: "PROTO TYPE - SHARE THE PROTOTYPE", height: "73px")
+= render 'index'
 
-.filter-nav
-  .container
-    .row
-      %ul.nav.nav-pills.col-lg-11
-        %li.active{role: "presentation"}
-          %a{href: "#"} Popular PROTO
-        %li{role: "presentation"}
-          %a{href: "#"} Newest PROTO
-      %button{type: "button", class: "btn btn-default col-lg-1"} View Tags
+-# .jumbotron
+-#   .container.text-center
+-#     = image_tag("header_logo.png", alt: "PROTO TYPE - SHARE THE PROTOTYPE", height: "73px")
+-#
+-# .filter-nav
+-#   .container
+-#     .row
+-#       %ul.nav.nav-pills.col-lg-11
+-#         %li.active{role: "presentation"}
+-#           %a{href: "#"} Popular PROTO
+-#         %li{role: "presentation"}
+-#           %a{href: "#"} Newest PROTO
+-#       %button{type: "button", class: "btn btn-default col-lg-1"} View Tags
+-#
+-# .container.proto-list
+-#   .row
+-#     - @prototypes.each do |prototype|
+-#       .col-sm-4.col-md-3.proto-content
+-#         .thumbnail
+-#           - prototype.images.each do |image|
+-#             = link_to image_tag image.image
+-#           .caption
+-#             %h3= link_to prototype.title, prototype_path(prototype)
+-#             .proto-meta
+-#               .proto-user
+-#                 = link_to prototype.user.name, user_path(prototype.user.id)
+-#               .proto-posted
+-#                 Apr 26
+-#             %ul.proto-tag-list.list-inline
+-#               %li
+-#                 %a{href: "#", class: "btn btn-default"} iPad
+-#               %li
+-#                 %a{href: "#", class: "btn btn-default"} wireframe
 
-.container.proto-list
-  .row
-    - @prototypes.each do |prototype|
-      .col-sm-4.col-md-3.proto-content
-        .thumbnail
-          - prototype.images.each do |image|
-            = link_to image_tag image.image
-          .caption
-            %h3= link_to prototype.title, prototype_path(prototype)
-            .proto-meta
-              .proto-user
-                = link_to prototype.user.name, user_path(prototype.user.id)
-              .proto-posted
-                Apr 26
-            %ul.proto-tag-list.list-inline
-              %li
-                %a{href: "#", class: "btn btn-default"} iPad
-              %li
-                %a{href: "#", class: "btn btn-default"} wireframe
+
+
+
     -# .col-sm-4.col-md-3.proto-content
     -#   .thumbnail
     -#     %a{href: "/prototypes/show"}
@@ -149,8 +155,8 @@
     -#             %a{href: "#", class: "btn btn-default"} iPad
     -#           %li
     -#             %a{href: "#", class: "btn btn-default"} wireframe
-.text-center
-  = paginate @prototypes
+-# .text-center
+-#   = paginate @prototypes
 
 
 
