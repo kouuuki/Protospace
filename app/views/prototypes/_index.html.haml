@@ -6,8 +6,8 @@
   .container
     .row
       %ul.nav.nav-pills.col-lg-11
-        %li.active{role: "presentation"}
-          %a{href: "#"} Popular PROTO
+        %li{role: "presentation"}
+          = link_to "Popular PROTO",root_path
         %li{role: "presentation"}
           = link_to "Newest PROTO",popular_newest_path
       %button{type: "button", class: "btn btn-default col-lg-1"} View Tags
@@ -27,10 +27,9 @@
               .proto-posted
                 Apr 26
             %ul.proto-tag-list.list-inline
-              %li
-                %a{href: "#", class: "btn btn-default"} iPad
-              %li
-                %a{href: "#", class: "btn btn-default"} wireframe
+              - prototype.tags.each do |tag|
+                %li
+                  = link_to tag.name, root_path, class: "btn btn-default"
 
 .text-center
   = paginate @prototypes

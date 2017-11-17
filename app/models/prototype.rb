@@ -8,7 +8,11 @@ class Prototype < ApplicationRecord
   def like_user(user_id)
    likes.find_by(user_id: user_id)
   end
-  
+
+  #タグ機能に関して
+  acts_as_taggable_on :labels
+  acts_as_taggable
+
   #mount_uploader :image, ImageUploader
   validates :title, presence: true
   validates :catch, presence: true

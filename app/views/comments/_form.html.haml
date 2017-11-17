@@ -17,12 +17,14 @@
 -#     = f.text_area :content
 -#   .actions
 -#     = f.submit 'Save'
-= form_for ([@prototype, @comment]), html: {class: 'form-inline'}, data: {remote: true} do |f|
-  %h4 Write a comment
-  .row
-    .form-group.col-md-10
-      = f.text_area :content,class:"form-control", rows: "3", placeholder:"Your comments"
-      -# %textarea.form-control{placeholder: "Your comments", rows: "3"}
-    .form-group.col-md-2
-      = f.submit 'Comment', class:"btn btn-primary"
-      -# %button.btn.btn-primary Comment
+- if current_user
+
+  = form_for [@prototype, @comment], html: {class: 'form-inline'}, data: {remote: true} do |f|
+    %h4 Write a comment
+    .row
+      .form-group.col-md-10
+        = f.text_area :content,class:"form-control", rows: "3", placeholder:"Your comments"
+        -# %textarea.form-control{placeholder: "Your comments", rows: "3"}
+      .form-group.col-md-2
+        = f.submit 'Comment', class:"btn btn-primary"
+        -# %button.btn.btn-primary Comment

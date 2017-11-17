@@ -72,6 +72,6 @@ class PrototypesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def prototype_params
-      params.require(:prototype).permit(:title, :catch, :concept, images_attributes: [:image])
+      params.require(:prototype).permit(:title, :catch, :concept, :tag_list, images_attributes: [:image])
     end
 end
